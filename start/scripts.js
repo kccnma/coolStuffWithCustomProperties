@@ -31,3 +31,16 @@ cursorItems.forEach(item => {
 
 });
 
+// Autoplay videos on hover
+const projectVideos = document.querySelectorAll('.project-item video');
+
+projectVideos.forEach((video) => {
+	video.addEventListener('mouseover', () => {
+		video.play();
+	});
+
+	video.addEventListener('mouseleave', () => {
+		video.pause();
+	});
+});
+
