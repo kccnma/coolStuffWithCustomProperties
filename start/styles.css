@@ -98,32 +98,35 @@ a {
 }
 
 /* CURSOR STYLES */
+/* Custom Cursors */
+@media (hover: none) {
+	.cursor {
+		display: none;
+	}
+}
 
 .cursor {
-	--height: 30px;
-	--width: 30px;
-	--background: var(--color-primary);
+	--height: 20px;
+	--width: 20px;
+	--background: var(--color-secondary);
+
+	pointer-events: none;
 	position: fixed;
 	top: 0;
-	left: 0;
+	left: 0%;
+	transform: translate3d(-50%, -50%, 0) translate3d(var(--x), var(--y), 0);
+	transform-origin: center;
+	transition: transform 0.35s ease-out;
 	height: var(--height);
 	width: var(--width);
 	background: var(--background);
-	transform: translate(-50%, -50%) translate(var(--x), var(--y));
-	transition: transform .3s ease-out;
 }
 
 .cursor[data-type='default'] {
-	--background: var(--color-secondary);
 	border-radius: 50%;
 }
 
-.cursor[data-type='view'] {
-	--background: var(--color-primary);
-}
-
 .cursor[data-type='blend'] {
-	--background: var(--color-tertiary);
 	border-radius: 50%;
 	background-blend-mode: difference;
 	mix-blend-mode: difference;
@@ -131,3 +134,11 @@ a {
 		scale(10);
 }
 
+.cursor[data-type='view'] {
+	--height: 50px;
+	--width: 100px;
+	--background: url('./assests/view.png');
+
+	background-size: contain;
+	background-repeat: no-repeat;
+}
