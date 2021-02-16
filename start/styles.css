@@ -13,6 +13,16 @@
 	src: url('./assests/SpaceGrotesk-Bold.woff2') format('woff2');
 }
 
+:root {	
+	--font-light: 'Space Grotesk Light';
+	--font-regular: 'Space Grotesk Regular';
+	--font-medium: 'Space Grotesk Medium';
+	--font-bold: 'Space Grotesk Bold';
+	--color-primary: #ff3f34;
+	--color-secondary: #ffd32a;
+	--color-tertiary: #3c40c6;
+}
+
 /* Default Custom Properties */
 
 /* Base Styles */
@@ -24,12 +34,22 @@ html {
 *:before,
 *:after {
 	box-sizing: inherit;
+	font-family: var(--font-regular);
 }
 
 body {
 	margin: 0;
 	padding: 0;
-	cursor: none;
+	/* cursor: none; */
+}
+
+strong {
+	font-family: var(--font-bold);
+	color: var(--color-primary);
+}
+
+a {
+	color: var(--color-tertiary);
 }
 
 .container {
@@ -70,4 +90,44 @@ body {
 	width: 100%;
 	height: 50vh;
 	object-fit: cover;
+	filter: brightness(0.9);
 }
+
+.project-item:hover video {
+	filter: brightness(1);
+}
+
+/* CURSOR STYLES */
+
+.cursor {
+	--height: 30px;
+	--width: 30px;
+	--background: var(--color-primary);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: var(--height);
+	width: var(--width);
+	background: var(--background);
+	transform: translate(-50%, -50%) translate(var(--x), var(--y));
+	transition: transform .3s ease-out;
+}
+
+.cursor[data-type='default'] {
+	--background: var(--color-secondary);
+	border-radius: 50%;
+}
+
+.cursor[data-type='view'] {
+	--background: var(--color-primary);
+}
+
+.cursor[data-type='blend'] {
+	--background: var(--color-tertiary);
+	border-radius: 50%;
+	background-blend-mode: difference;
+	mix-blend-mode: difference;
+	transform: translate3d(-50%, -50%, 0) translate3d(var(--x), var(--y), 0)
+		scale(10);
+}
+
