@@ -1,6 +1,7 @@
 # Cool Stuff With Custom Properties
 
 [View David's Demo](https://frzrbox.github.io/coolStuffWithCustomProperties/finished/)
+
 [View My Demo](https://kccnma.github.io/coolStuffWithCustomProperties/start/)
 
 All base files will be in the `start` folder, the completed files will be found in the `finished` folder
